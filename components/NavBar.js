@@ -9,7 +9,7 @@ export default function NavBar() {
       <Link href="/" legacyBehavior>
         <a className="logo purple montserrat">
           <img src="https://cdn-icons-png.flaticon.com/512/8058/8058802.png"></img>  
-          <span className="title">Next Movie</span>
+          <span>Next Movie</span>
         </a>    
       </Link>
       <div className="navbox montserrat">
@@ -48,10 +48,8 @@ export default function NavBar() {
             text-transform: uppercase;
             display: flex;
             align-items: center;
-            font-weight: 400;
-          }
-          .title {
-            letter-spacing: -0.2rem
+            font-weight: 500;
+            letter-spacing: -0.12rem;
           }
           .navbox {
             color: #3a3a3a
@@ -62,17 +60,19 @@ export default function NavBar() {
           @media (max-width: 800px) {
             nav {
               width: 100vw;
-              height: 70px
+              height: 60px
             }
             a {
-              margin-left: 15px;
-              font-size: 1.5rem;
+              font-size: 1.3rem;
             }
             img {
-              height: 2rem;
+              height: 1.8rem;
             }
             .logo {
-              font-size: 1.8rem
+              font-size: 1.4rem
+            }
+            .navbox a{
+              margin: 8px
             }
           }
         `}

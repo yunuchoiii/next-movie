@@ -8,6 +8,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  background-color: #fcfcfc;
 }
 
 body {
@@ -42,6 +43,18 @@ a {
 }
 .fw-700 {
   font-weight: 700;
+}
+.ml-10 {
+  margin-left: 10px;
+}
+.ml-15 {
+  margin-left: 15px;
+}
+.mr-10 {
+  margin-right: 10px;
+}
+.mr-15 {
+  margin-right: 15px;
 }
 
 @media (prefers-color-scheme: dark) {
