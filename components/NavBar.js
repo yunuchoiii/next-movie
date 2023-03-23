@@ -27,7 +27,7 @@ export default function NavBar() {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px;
+            padding: 20px 30px 20px 20px;
             box-shadow: 9px 10px 38px -5px rgba(0,0,0,0.1);
             position: fixed;
             top: 0;
@@ -38,6 +38,10 @@ export default function NavBar() {
             text-decoration: none;
             font-size: 2rem;
             font-weight: 700;
+            transition: color 0.2s ease-in-out;
+          }
+          a:hover {
+            color: #6c4bdf
           }
           img {
             height: 50px;
@@ -48,14 +52,14 @@ export default function NavBar() {
             text-transform: uppercase;
             display: flex;
             align-items: center;
-            font-weight: 500;
+            font-weight: 700;
             letter-spacing: -0.12rem;
           }
           .navbox {
             color: #3a3a3a
           }
           .navbox a{
-            margin: 15px
+            margin-left: 30px
           }
           @media (max-width: 800px) {
             nav {
@@ -72,7 +76,7 @@ export default function NavBar() {
               font-size: 1.4rem
             }
             .navbox a{
-              margin: 8px
+              margin-left: 10px
             }
           }
         `}

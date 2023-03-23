@@ -12,6 +12,10 @@ export default function About () {
       <span className="title fw-700">
         About Project
       </span>
+      <div className="NMlogo">
+        <img src="https://cdn-icons-png.flaticon.com/512/8058/8058802.png" className="mr-10"></img>  
+        <span className="purple montserrat"> NEXT MOVIE</span>  
+      </div>  
       <div className="about">
         <span>
           <b>노마드코더</b>님의 <b>Next.js</b> 강의를 들으면서 만든<br/> <b>React + Next.js</b> 실습 프로젝트 입니다.
@@ -22,11 +26,7 @@ export default function About () {
         <li>API: <a href="https://www.themoviedb.org/documentation/api" target="_blank">The Movie Database</a></li>
         <li>Icons: <a href="https://www.flaticon.com/" target="_blank">flaticon</a></li>
         <li>Github: <a href="https://github.com/yunuchoiii/next-movie" target="_blank">yunuchoiii/next-movie</a></li>
-      </ul> 
-      <div className="NMlogo">
-        <img src="https://cdn-icons-png.flaticon.com/512/8058/8058802.png" className="mr-10"></img>  
-        <span className="purple montserrat"> NEXT MOVIE</span>  
-      </div>     
+      </ul>    
     </div>
     <style jsx>
       {`
@@ -40,8 +40,8 @@ export default function About () {
           list-style-type: none;
         }
         .montserrat {
-          letter-spacing: -0.18rem;
-          font-weight: 500;
+          letter-spacing: -0.15rem;
+          font-weight: 700;
         }
         .logos {
           width: 100%;
@@ -52,11 +52,11 @@ export default function About () {
           margin-bottom: 50px;
         }
         .img_react {
-          width: 170px;
+          width: 130px;
           margin-right: 50px;
         }
         .img_nextjs {
-          width: 300px;
+          width: 250px;
           margin-left: 50px;
         }
         .img_plus {
@@ -89,6 +89,9 @@ export default function About () {
           width: 60px;
         }
         @media (max-width: 800px) {
+          .logos {
+            margin-top: 30px;
+          }
           .img_react {
             width: 80px;
             margin-right: 30px;
