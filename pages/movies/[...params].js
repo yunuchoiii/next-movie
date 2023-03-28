@@ -10,69 +10,70 @@ export default function Detail ({params}) {
         `http://localhost:3000/api/movies/id=${id}`
       )).json();
       setInfo(response);
-      console.log(response);
     })();
   }, [])
   return <div>
     <HeadTitle title={title}></HeadTitle>
-    <img src={`https://image.tmdb.org/t/p/w500/${info.poster_path}`} className="poster box-shadow"></img>
-    <div className="contents">
-      <p className="purple title">{info.original_title}</p>
-      <p className="tagline">{info.tagline}</p>
-      <hr></hr>
-      <p className="overview">{info.overview}</p>
-      <div className="tags">
-        {info.genres ? info.genres.map((genre) => 
-          <div className="tag" key={genre.id}>{genre.name}</div>
-        ) : null }
+    {info === {} ? <h1>Loading</h1> :<div>
+      <img src={`https://image.tmdb.org/t/p/w500/${info.poster_path}`} className="poster box-shadow"></img>
+      <div className="contents">
+        <p className="purple title">{info.original_title}</p>
+        <p className="tagline">{info.tagline}</p>
+        <hr></hr>
+        <p className="overview">{info.overview}</p>
+        <div className="tags">
+          {info.genres ? info.genres.map((genre) => 
+            <div className="tag" key={genre.id}>{genre.name}</div>
+          ) : null }
+        </div>
+        <hr></hr>
+        <div className="details">
+          <div>
+            <b>Rate</b>
+            <span className="purple fw-700 ml-10">
+              {info.vote_average ? info.vote_average.toFixed(1):null}
+            </span>
+          </div>
+          {/* <div>
+            <b>Country</b>
+            <span className="purple fw-700 ml-10">
+              {info.production_countries ? info.production_countries[0].name : null}
+            </span>
+          </div> */}
+          <div>
+            <b>Release</b>
+            <span className="purple fw-700 ml-10">
+              {info.release_date}
+            </span>
+          </div>
+          <div>
+            <b>Runtime</b> 
+            <span className="purple fw-700 ml-10">
+              {Math.floor(info.runtime/60)}h {info.runtime%60}m
+            </span>
+          </div>        
+          <div>
+            <b>Production</b>
+            {info.production_companies ?
+            <ul className="purple fw-700 ml-10">
+              {info.production_companies.map((company) => <li key={company.id}>{company.name}</li>)}
+            </ul>
+            : <li></li>} 
+          </div>
+        </div>
+        <hr></hr>
+        <div className="icons">
+          {info.homepage != "" ? 
+          <a href={info.homepage} target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/7781/7781669.png" className="filter-dark mr-15"/>
+          </a> : null}
+          {info.imdb_id != "" ? 
+          <a href={`https://www.imdb.com/title/${info.imdb_id}/`} target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png"/>
+          </a> : null}
+        </div>
       </div>
-      <hr></hr>
-      <div className="details">
-        <div>
-          <b>Rate</b>
-          <span className="purple fw-700 ml-10">
-            {info.vote_average ? info.vote_average.toFixed(1):null}
-          </span>
-        </div>
-        <div>
-          <b>Country</b>
-          <span className="purple fw-700 ml-10">
-            {info.production_countries ? info.production_countries[0].name : null}
-          </span>
-        </div>
-        <div>
-          <b>Release</b>
-          <span className="purple fw-700 ml-10">
-            {info.release_date}
-          </span>
-        </div>
-        <div>
-          <b>Runtime</b> 
-          <span className="purple fw-700 ml-10">
-            {Math.floor(info.runtime/60)}h {info.runtime%60}m
-          </span>
-        </div>        
-        <div>
-          <b>Production</b>
-          {info.production_companies ?
-          <ul className="purple fw-700 ml-10">
-            {info.production_companies.map((company) => <li key={company.id}>{company.name}</li>)}
-          </ul>
-          : <li></li>} 
-        </div>
-      </div>
-      <hr></hr>
-      <div className="icons">
-        {info.homepage != "" ? 
-        <a href={info.homepage} target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/7781/7781669.png" className="filter-dark mr-15"/>
-        </a> : null}
-        {info.imdb_id != "" ? 
-        <a href={`https://www.imdb.com/title/${info.imdb_id}/`} target="_blank">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png"/>
-        </a> : null}
-      </div>
-    </div>
+    </div>}
 
     <style jsx>
       {`

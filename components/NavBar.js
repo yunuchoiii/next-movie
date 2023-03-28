@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 
 export default function NavBar() {
   const router = useRouter();
+  const now_path = router.asPath.split("/")[1];
 
   return (
     <nav>
@@ -12,13 +13,22 @@ export default function NavBar() {
           <span>Next Movie</span>
         </a>    
       </Link>
-      <div className="navbox montserrat">
+      <div className="navbox">
         <Link href="/" legacyBehavior>
           <a className={router.pathname === '/' ? "purple" : null}>Home</a>
         </Link>
         <Link href="/about" legacyBehavior>
-          <a className={router.pathname === '/about' ? "purple" : null}>About</a>
-        </Link>            
+          <a className={now_path === 'about' ? "purple" : null}>About</a>
+        </Link>
+        <Link href="/popular/1" legacyBehavior>
+          <a className={now_path === 'popular' ? "purple" : null}>Popular</a>
+        </Link>
+        <Link href="/now_playing/1" legacyBehavior>
+          <a className={now_path === 'now_playing' ? "purple" : null}>Now In Theaters</a>
+        </Link>
+        <Link href="/top_rated/1" legacyBehavior>
+          <a className={now_path === 'top_rated' ? "purple" : null}>Top Rated</a>
+        </Link>
       </div>
       <style jsx>
         {`
@@ -36,8 +46,7 @@ export default function NavBar() {
           }
           a {
             text-decoration: none;
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: 1.4rem;
             transition: color 0.2s ease-in-out;
           }
           a:hover {
@@ -59,7 +68,7 @@ export default function NavBar() {
             color: #3a3a3a
           }
           .navbox a{
-            margin-left: 30px
+            margin-left: 20px
           }
           @media (max-width: 800px) {
             nav {

@@ -1,9 +1,11 @@
+import Footer from "./Footer";
 import NavBar from "./NavBar";
 
 export default function Layout ({children}) {
   return <>
     <NavBar></NavBar>
     <div className="contents">{children}</div>
+    <Footer></Footer>
     <style jsx>
       {`
         .contents {

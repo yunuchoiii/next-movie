@@ -49,7 +49,7 @@ export default function About () {
           flex-direction: row;
           justify-content: center;
           align-items: center;
-          margin-bottom: 50px;
+          margin-bottom: 30px;
         }
         .img_react {
           width: 130px;
