@@ -34,12 +34,12 @@ export default function Detail ({params}) {
               {info.vote_average ? info.vote_average.toFixed(1):null}
             </span>
           </div>
-          {/* <div>
+          <div>
             <b>Country</b>
             <span className="purple fw-700 ml-10">
               {info.production_countries ? info.production_countries[0].name : null}
             </span>
-          </div> */}
+          </div>
           <div>
             <b>Release</b>
             <span className="purple fw-700 ml-10">

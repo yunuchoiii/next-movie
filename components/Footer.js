@@ -2,7 +2,7 @@ export default function Footer () {
   return <>
     <div className="footer fl-between">
       <div className="copyright">
-        Copyright © 2023 Next Movie by yunuchoiii. All rights reserved.
+        Copyright © 2023. Next Movie. All rights reserved.
       </div>
       <div className="contact">
         <a href="mailto:chltjdnjs529@gmail.com">
@@ -19,9 +19,10 @@ export default function Footer () {
           margin: 10px;
         }
         .footer {
+          width: 100%;
           height: 80px;
           background-color: #555555;
-          padding: 10px 20px;
+          padding: 10px 30px;
           font-size: 1rem;
         }
         .copyright {

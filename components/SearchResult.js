@@ -28,9 +28,9 @@ export default function SearchResult () {
   }, [router.query.keyword, keyword, page])
   
   return <div className="fl-center fl-col">
-    <SearchBar></SearchBar>
+    <SearchBar keyword={keyword}></SearchBar>
     <div className="header">Search Results for <span className="purple fw-700">{keyword}</span></div>
-    {results.map((movie)=>{
+    {results ? results.map((movie)=>{
       return <Link
       href={`/movies/${movie.original_title}/${movie.id}`}
       key={movie.id} 
@@ -51,12 +51,12 @@ export default function SearchResult () {
           <img src="https://cdn-icons-png.flaticon.com/512/2989/2989988.png" width="30px"></img>
         </div>
       </Link>
-    })}
+    }) : <h3>No search results found</h3>}
 
-    <Pagination 
+    {results ? <Pagination 
       sort={`search/${keyword}`} 
       page={page}
-      totalPage={totalPage}/>
+      totalPage={totalPage}/> : null}
 
     <style jsx>
       {`
