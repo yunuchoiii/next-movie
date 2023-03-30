@@ -102,6 +102,15 @@ export default function SearchBar (props) {
           width: 15px;
           margin-right: 5px;
         }
+
+        @media (max-width: 800px) {
+          .search {
+            margin-bottom: 30px;
+          }
+          .search__input {
+            width: 15em;
+          }
+        }
       `}
     </style>
   </>

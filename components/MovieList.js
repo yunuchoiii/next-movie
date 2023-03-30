@@ -26,8 +26,8 @@ export default function MovieList(props) {
   return (
     <div className="body">
       <HeadTitle title={props.title}></HeadTitle>
-      <div className="title purple montserrat">
-        <h1>{props.title}</h1>
+      <div className="title purple montserrat fw-700">
+        <span>{props.title}</span>
       </div>
       {movies?.map((movie)=>(
       <div className="movie" onClick={()=>onMovieClick(movie.id, movie.title)} key={movie.id}>
@@ -61,7 +61,7 @@ export default function MovieList(props) {
             width: 100vw;
             padding-bottom: 50px;
             text-align: center;
-            font-size: 1.6rem;
+            font-size: 2.3rem;
           }
           .movie {
             width: 18%;
@@ -91,6 +91,9 @@ export default function MovieList(props) {
             }
             .movie:active {
               transform: scale(0.9);
+            }
+            .title {
+              font-size: 1.8rem
             }
           }
         `}

@@ -67,7 +67,7 @@ export default function HomeBanner (props) {
         
       }
       .title {
-        font-size: 3rem;
+        font-size: 2rem;
         color: #303030;
         transition: color 0.2s ease-out;
       }
@@ -130,7 +130,7 @@ export default function HomeBanner (props) {
         display: inline-block;
         color: #6c4bdf;
         text-align: center;
-        font-size: 1.1rem;
+        font-size: 1rem;
         transition: all 0.5s;
         cursor: pointer;
         margin: 5px;
@@ -159,8 +159,21 @@ export default function HomeBanner (props) {
       @media (max-width: 800px) {
         .banner {
           width: 90%;
-          height: 400px;
-          margin-bottom: 50px;
+        }
+        .title {
+          font-size: 2rem;
+          letter-spacing: -0.05rem;
+        }
+        .movie-list {
+          flex-wrap: wrap;
+        }
+        .movie {
+          width: 45%;
+          padding-bottom: 68%;
+          margin-bottom: 30px;
+        }
+        a {
+          border-radius: 10px;
         }
       }
     `}

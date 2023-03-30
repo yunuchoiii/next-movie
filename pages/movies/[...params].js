@@ -1,4 +1,5 @@
 import HeadTitle from "@/components/HeadTitle";
+import Loader from "@/components/Loader";
 import { useEffect, useState } from "react";
 
 export default function Detail ({params}) {
@@ -16,12 +17,18 @@ export default function Detail ({params}) {
     <HeadTitle title={title}></HeadTitle>
     {!info.title ? 
     <div className="loading fl-center">
-      <h1>Loading...</h1>
+      <Loader/>
     </div> 
     :<div className="body">
       <img src={`https://image.tmdb.org/t/p/w500/${info.poster_path}`} className="poster box-shadow"></img>
       <div className="contentsbox">
-        <p className="purple title">{info.original_title}</p>
+        <div className="fl-center">
+          <span className="purple title">
+            {info.original_title}
+          </span>
+          {info.title != info.original_title ? 
+            <span className="co-title"> ({info.title})</span> : null}          
+        </div>
         <p className="tagline">{info.tagline}</p>
         <hr></hr>
         <p className="overview">{info.overview}</p>
@@ -68,7 +75,7 @@ export default function Detail ({params}) {
           </div>
         </div>
         <hr></hr>
-        <div className="icons">
+        <div className="icons fl-center">
           {info.homepage != "" ? 
           <a href={info.homepage} target="_blank">
             <img src="https://cdn-icons-png.flaticon.com/512/7781/7781669.png" className="filter-dark mr-15"/>
@@ -110,6 +117,10 @@ export default function Detail ({params}) {
         .title {
           font-size: 2.5rem;
           font-weight: 700;
+        }
+        .co-title {
+          color: #808080;
+          font-size: 1.2rem;
         }
         .tagline {
           font-size: 1.5rem;
@@ -165,7 +176,7 @@ export default function Detail ({params}) {
           filter: brightness(0.8);
         }
         .loading {
-          height : 100%;
+          height: 500px;
         }
         @media (max-width: 800px) {
           *{
@@ -176,6 +187,12 @@ export default function Detail ({params}) {
             margin-top: 10px;
             margin-bottom: 13px;
           }
+          nav {
+            flex-direction: row;
+          }
+          .NMlogo {
+            width: auto !important;
+          }
           .poster {
             width: 80%;
             height: auto;
@@ -184,6 +201,9 @@ export default function Detail ({params}) {
           .title {
             font-size: 1.8rem;
             text-align: center;
+          }
+          .co-title {
+            font-size: 1rem;
           }
           .tagline {
             font-size: 1.2rem;

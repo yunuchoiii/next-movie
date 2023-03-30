@@ -35,7 +35,7 @@ export default function About () {
         .body {
           height: 100%;
         }
-        ul > a{
+        ul > li > a{
           color: #6c4bdf;
         }
         ul {
@@ -108,7 +108,7 @@ export default function About () {
             font-size: 1.8rem;
           }
           .about {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 2rem;
             white-space: nowrap;
           }
@@ -117,7 +117,6 @@ export default function About () {
             line-height: 1.8rem;
           }
           .NMlogo {
-            margin-top: 30px;
             font-size: 2rem;
           }
           .NMlogo img {
