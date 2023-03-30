@@ -43,11 +43,11 @@ export default function NavBar() {
           onClick={()=>{
             setHiddenClass('dis-flex slide-out-right');
           }}
-          clip-rule="evenodd"
-          fill-rule="evenodd"
+          clipRule="evenodd"
+          fillRule="evenodd"
           stroke="#f3f3f3"
-          stroke-linejoin="round"
-          stroke-miterlimit="2"
+          strokeLinejoin="round"
+          strokeMiterlimit="2"
           viewBox="0 0 24 24" 
           xmlns="http://www.w3.org/2000/svg">
             <path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/>
@@ -67,6 +67,7 @@ export default function NavBar() {
         {`
           nav {
             width: 100vw;
+            height: 75px;
             display: flex;
             align-items: center;
             justify-content: space-between;

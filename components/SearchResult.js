@@ -10,12 +10,19 @@ export default function SearchResult () {
   const [totalPage, setTotalPage] = useState("");
   const [page, setPage] = useState("");
   const [results, setResults] = useState([]);
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
   
   async function pagination() {
     const res = await (await fetch(
       `http://localhost:3000/api/search/keyword=${keyword}/page=${page}`
     )).json();
-    setResults(res.results)
+    setResults(res.results);
     setTotalPage(res.total_pages);
   }
 
@@ -25,12 +32,15 @@ export default function SearchResult () {
       setPage(router.query.keyword[1]);
     }
     pagination();
+    console.log(results.length)
   }, [router.query.keyword, keyword, page])
   
   return <div className="fl-center fl-col">
     <SearchBar keyword={keyword}></SearchBar>
-    <div className="header">Search Results for <span className="purple fw-700">{keyword}</span></div>
-    {results ? results.map((movie)=>{
+    <div className="header">
+      Search Results for <b className="purple">{keyword}</b>
+    </div>
+    {results.length != 0 ? results.map((movie)=>{
       return <Link
       href={`/movies/${movie.original_title}/${movie.id}`}
       key={movie.id} 
@@ -51,15 +61,20 @@ export default function SearchResult () {
           <img src="https://cdn-icons-png.flaticon.com/512/2989/2989988.png" width="30px"></img>
         </div>
       </Link>
-    }) : <h3>No search results found</h3>}
+    }) : <div className="empty fl-center">No Search Results Found.</div>}
 
-    {results ? <Pagination 
+    {results.length != 0 ? <Pagination 
       sort={`search/${keyword}`} 
       page={page}
       totalPage={totalPage}/> : null}
 
-    <style jsx>
+    <style jsx global>
       {`
+        .contents {
+          min-height: calc(100% - 70px);
+          padding-top: 110px !important;
+          margin-top: 0 !important;
+        }
         .fl-col {
           display: flex;
           justify-content: center;
@@ -100,6 +115,10 @@ export default function SearchResult () {
         .date {
           margin-top: 5px;
           font-size: 1rem;
+        }
+        .empty {
+          height: 300px;
+          font-size: 1.2rem;
         }
       `}
     </style>

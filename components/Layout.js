@@ -11,7 +11,6 @@ export default function Layout ({children}) {
         .contents {
           padding: 50px;
           margin-top: 80px;
-          height: 100%;
         }
         @media (max-width: 800px) {
           .contents {

@@ -10,8 +10,14 @@ export default function App({Component, pageProps}){
       </Head>
       <Layout>
         <Component {...pageProps}/>
-      </Layout>    
+      </Layout>
+      <style global jsx>{`
+        html,
+        body,
+        #__next {
+          height: 100%;
+        }
+      `}</style>
     </>
-
   )
 }

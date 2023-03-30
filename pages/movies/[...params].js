@@ -14,9 +14,13 @@ export default function Detail ({params}) {
   }, [])
   return <div>
     <HeadTitle title={title}></HeadTitle>
-    {info === {} ? <h1>Loading</h1> :<div>
+    {!info.title ? 
+    <div className="loading fl-center">
+      <h1>Loading...</h1>
+    </div> 
+    :<div className="body">
       <img src={`https://image.tmdb.org/t/p/w500/${info.poster_path}`} className="poster box-shadow"></img>
-      <div className="contents">
+      <div className="contentsbox">
         <p className="purple title">{info.original_title}</p>
         <p className="tagline">{info.tagline}</p>
         <hr></hr>
@@ -34,12 +38,14 @@ export default function Detail ({params}) {
               {info.vote_average ? info.vote_average.toFixed(1):null}
             </span>
           </div>
-          <div>
-            <b>Country</b>
-            <span className="purple fw-700 ml-10">
-              {info.production_countries ? info.production_countries[0].name : null}
-            </span>
-          </div>
+          {!info.production_countries.length == 0 ? 
+            <div>
+              <b>Country</b>
+              <span className="purple fw-700 ml-10">
+                {info.production_countries[0].name}
+              </span>
+            </div>
+          : null}
           <div>
             <b>Release</b>
             <span className="purple fw-700 ml-10">
@@ -75,10 +81,15 @@ export default function Detail ({params}) {
       </div>
     </div>}
 
-    <style jsx>
+    <style jsx global>
       {`
-        * {
+        .body {
           display: flex;
+        }
+        .contents {
+          min-height: calc(100% - 70px);
+          padding-top: 60px !important;
+          margin-top: 75px !important;
         }
         hr {
           margin-top: 15px;
@@ -105,7 +116,7 @@ export default function Detail ({params}) {
           margin-top: 5px;
           color: #808080;
         }
-        .contents {
+        .contentsbox {
           flex-direction: column;
           padding-left: 50px;
           height: 100%;
@@ -121,6 +132,7 @@ export default function Detail ({params}) {
           line-height: 2rem;
         }
         .details div{
+          display: flex;
           flex-direction: row;
           align-items: baseline;
           margin: 2px 0px;
@@ -152,6 +164,9 @@ export default function Detail ({params}) {
         .filter-dark {
           filter: brightness(0.8);
         }
+        .loading {
+          height : 100%;
+        }
         @media (max-width: 800px) {
           *{
             flex-direction: column;
@@ -174,7 +189,7 @@ export default function Detail ({params}) {
             font-size: 1.2rem;
             text-align: center;
           }
-          .contents {
+          .contentsbox {
             font-size: 1rem;
             padding: 5%;
           }

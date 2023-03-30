@@ -8,7 +8,7 @@ export default function About () {
       <img src="https://cdn-icons-png.flaticon.com/512/748/748113.png" className="img_plus"></img>
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/800px-Nextjs-logo.svg.png" className="img_nextjs"></img>      
     </div>
-    <div className="contents">
+    <div className="textbox">
       <div className="NMlogo">
         {/* <img src="https://cdn-icons-png.flaticon.com/512/8058/8058802.png" className="mr-10"></img>   */}
         <span className="purple alfa"> NEXT MOVIE</span>  
@@ -25,21 +25,24 @@ export default function About () {
         <li>Github: <a href="https://github.com/yunuchoiii/next-movie" target="_blank">yunuchoiii/next-movie</a></li>
       </ul>    
     </div>
-    <style jsx>
+    <style jsx global>
       {`
-        .body {}
-        a{
-          color: #6c4bdf
+        .contents {
+          height: calc(100% - 70px);
+          padding-top: 75px !important;
+          margin-top: 0 !important;
+        }
+        .body {
+          height: 100%;
+        }
+        ul > a{
+          color: #6c4bdf;
         }
         ul {
           width: max-content;
         }
         li {
           list-style-type: none;
-        }
-        .montserrat {
-          letter-spacing: -0.15rem;
-          font-weight: 700;
         }
         .logos {
           width: 100%;
@@ -64,7 +67,7 @@ export default function About () {
         .title {
           font-size: 2.3rem;
         }
-        .contents {
+        .textbox {
           font-size: 1.3rem;
           line-height: 2rem;
           display: flex;
@@ -109,7 +112,7 @@ export default function About () {
             line-height: 2rem;
             white-space: nowrap;
           }
-          .contents {
+          .textbox {
             font-size: 1rem;
             line-height: 1.8rem;
           }

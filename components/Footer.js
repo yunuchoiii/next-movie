@@ -20,9 +20,9 @@ export default function Footer () {
         }
         .footer {
           width: 100%;
-          height: 80px;
+          height: 70px;
           background-color: #555555;
-          padding: 10px 30px;
+          padding: 0 20px;
           font-size: 1rem;
         }
         .copyright {
