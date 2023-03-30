@@ -5,12 +5,13 @@ export default function Layout ({children}) {
   return <>
     <NavBar></NavBar>
     <div className="contents">{children}</div>
-    <Footer></Footer>
+    <Footer className="footer"></Footer>
     <style jsx>
       {`
         .contents {
           padding: 50px;
-          margin-top: 90px;
+          margin-top: 80px;
+          height: 100%;
         }
         @media (max-width: 800px) {
           .contents {

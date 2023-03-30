@@ -1,21 +1,24 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SearchBar from "./SearchBar";
 
 export default function NavBar() {
   const router = useRouter();
   const now_path = router.asPath.split("/")[1];
-  const [hiddenClass, setHiddenClass] = useState('dis-none')
-  const [showClass, setShowClass] = useState('dis-block')
+  const [hiddenClass, setHiddenClass] = useState('dis-none');
 
+  useEffect(()=>{
+    setHiddenClass('dis-none');
+  }, [router])
+  
   return (
     <nav>
       <Link href="/" legacyBehavior>
-        <a className="logo purple montserrat">
-          <img src="https://cdn-icons-png.flaticon.com/512/8058/8058802.png"></img>  
+        <a className="NMlogo purple alfa">
+          {/* <img src="https://cdn-icons-png.flaticon.com/512/8058/8058802.png"></img>   */}
           <span>Next Movie</span>
-        </a>    
+        </a>
       </Link>
       <div className="navbox montserrat">
         <Link href="/" legacyBehavior>
@@ -34,18 +37,25 @@ export default function NavBar() {
           <a className={now_path === 'top_rated' ? "purple" : null}>Top Rated</a>
         </Link>
       </div>
-      <div className={`${hiddenClass} slide-in-right searchbar`}>
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/2961/2961937.png" 
+      <div className={`${hiddenClass} searchbar`}>
+        <svg src="https://cdn-icons-png.flaticon.com/512/2961/2961937.png" 
           className={`erase-icon ${hiddenClass}`} 
           onClick={()=>{
-            setHiddenClass('dis-none');
-          }}/>
+            setHiddenClass('dis-flex slide-out-right');
+          }}
+          clip-rule="evenodd"
+          fill-rule="evenodd"
+          stroke="#f3f3f3"
+          stroke-linejoin="round"
+          stroke-miterlimit="2"
+          viewBox="0 0 24 24" 
+          xmlns="http://www.w3.org/2000/svg">
+            <path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/>
+        </svg>
         <SearchBar width="250px"></SearchBar>
       </div>
       <button className={`search-btn`} onClick={()=>{
-        setHiddenClass('dis-flex');
-        setShowClass('dis-none');
+        setHiddenClass('dis-flex slide-in-right');
       }}>
         <svg className="search__icon" aria-hidden="true" viewBox="0 0 24 24">
           <g>
@@ -79,13 +89,14 @@ export default function NavBar() {
             height: 50px;
             margin-right: 5px;
           }
-          .logo {
-            font-size: 2rem;
+          .NMlogo {
+            width: 250px;
+            font-size: 1.6rem;
             text-transform: uppercase;
             display: flex;
             align-items: center;
-            font-weight: 700;
-            letter-spacing: -0.12rem;
+            font-weight: 400;
+            letter-spacing: -0.05rem;
           }
           .navbox {
             color: #3a3a3a;
@@ -111,9 +122,10 @@ export default function NavBar() {
             align-items: center;
           }
           .erase-icon {
-            width: 15px;
-            height: 15px;
+            width: 20px;
+            height: 20px;
             margin-right: 10px;
+            color: 808080;
           }
           @media (max-width: 800px) {
             nav {
@@ -126,8 +138,8 @@ export default function NavBar() {
             img {
               height: 1.8rem;
             }
-            .logo {
-              font-size: 1.4rem
+            .NMlogo {
+              font-size: 1.2rem
             }
             .navbox a{
               margin-left: 10px

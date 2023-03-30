@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 export default function SearchBar (props) {
   const router = useRouter();
   const barWidth = props.width;
-  const [inputValue, setInputValue] = useState(props.keyword);
+  const searchedWord = props.keyword;
+  const [inputValue, setInputValue] = useState();
   const [hiddenClass, setHiddenClass] = useState();
   function onSearchClick () {
     if (window.event.keyCode==13) {

@@ -1,7 +1,7 @@
 import HeadTitle from "@/components/HeadTitle";
 
 export default function About () {
-  return <div>
+  return <div className="body fl-center fl-col">
     <HeadTitle title="About"></HeadTitle>
     <div className="logos">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png" className="img_react"></img>
@@ -9,16 +9,13 @@ export default function About () {
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/800px-Nextjs-logo.svg.png" className="img_nextjs"></img>      
     </div>
     <div className="contents">
-      <span className="title fw-700">
-        About Project
-      </span>
       <div className="NMlogo">
-        <img src="https://cdn-icons-png.flaticon.com/512/8058/8058802.png" className="mr-10"></img>  
-        <span className="purple montserrat"> NEXT MOVIE</span>  
-      </div>  
+        {/* <img src="https://cdn-icons-png.flaticon.com/512/8058/8058802.png" className="mr-10"></img>   */}
+        <span className="purple alfa"> NEXT MOVIE</span>  
+      </div>
       <div className="about">
         <span>
-          <b>노마드코더</b>님의 <b>Next.js</b> 강의를 들으면서 만든<br/> <b>React + Next.js</b> 실습 프로젝트 입니다.
+          <b>노마드코더</b>님의 <b>Next.js</b> 강의를 토대로 만든<br/> <b>React</b> + <b>Next.js</b> 실습 프로젝트 입니다.
         </span>
       </div>
       <ul>
@@ -30,6 +27,7 @@ export default function About () {
     </div>
     <style jsx>
       {`
+        .body {}
         a{
           color: #6c4bdf
         }
@@ -80,7 +78,6 @@ export default function About () {
           line-height: 2.5rem;
         }
         .NMlogo {
-          margin-top: 30px;
           font-size: 2.5rem;
           display: flex;
           align-items: center;
