@@ -13,7 +13,7 @@ export default function Index() {
       <HomeBanner sort="now_playing" title="Now In Theaters"></HomeBanner>
       <hr></hr>
       <HomeBanner sort="top_rated" title="Top Rated"></HomeBanner>
-      <style jsx global>
+      <style jsx>
         {`
           .home{
             display: flex;
@@ -21,7 +21,7 @@ export default function Index() {
             flex-direction: column;
           }
           hr {
-            width: 98%;
+            width: 97%;
             background: #bdbdbd;
             height:1px;
             border:0;

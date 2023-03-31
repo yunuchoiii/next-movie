@@ -64,9 +64,9 @@ export default function SearchBar (props) {
         .search__input {
           font-family: inherit;
           font-size: inherit;
-          background-color: #f4f2f2;
+          background-color: #555555;
           border: none;
-          color: #646464;
+          color: #ffffff;
           padding: 0.7rem 1rem;
           border-radius: 30px;
           border: 2px solid transparent;
@@ -82,6 +82,7 @@ export default function SearchBar (props) {
           outline: none;
           background-color: #f0eeee;
           border: 2px solid #bab0da;
+          color: black;
         }
         .search__input::-webkit-input-placeholder {
           font-weight: 100;
@@ -92,7 +93,7 @@ export default function SearchBar (props) {
         }
         .search__button {
           border: none;
-          background-color: #f4f2f2;
+          background-color: transparent;
           margin-top: .1em;
         }
         .search__button:hover {
@@ -101,7 +102,7 @@ export default function SearchBar (props) {
         .search__icon {
           height: 1.3em;
           width: 1.3em;
-          fill: #6c4bdf;
+          fill: #7f58ff;
         }
         .erase-icon {
           width: 15px;

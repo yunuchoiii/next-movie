@@ -24,9 +24,9 @@ export default function HomeBanner (props) {
           <a className="title fw-700 montserrat">{props.title}</a>
         </Link>
         <Link href={`/${props.sort}/1`} legacyBehavior>
-        <button className="more-btn">
-          <span>MORE</span>
-        </button>
+          <button className="more-btn pc">
+            <span>MORE</span>
+          </button>
         </Link>
       </div>
       <div className="movie-list">
@@ -59,21 +59,33 @@ export default function HomeBanner (props) {
           </Link>
         })}
       </div>
+      <div className="fl-center mo">
+        <Link href={`/${props.sort}/1`} legacyBehavior>
+          <button className="more-btn">
+            <span>MORE</span>
+          </button>
+        </Link>        
+      </div>
     </div>
   <style jsx>
     {`
+      .mo {
+        display: none !important;
+      }
+      .pc {
+        display: block !important;
+      }
       .banner {
         width: 95%;
-        
       }
       .title {
         font-size: 2.4rem;
-        color: #303030;
+        color: #d8d8d8;
         transition: color 0.2s ease-out;
         white-space: nowrap;
       }
       .title:hover {
-        color: #6c4bdf
+        color: #7f58ff
       }
       .fl-between {
         display: flex;
@@ -119,7 +131,7 @@ export default function HomeBanner (props) {
         width: 30px;
         height: 30px;
         border-radius: 30px;
-        background-color: #6c4bdf;
+        background-color: #7f58ff;
         color: white;
         font-size: 1.2rem;
         position: absolute;
@@ -129,7 +141,7 @@ export default function HomeBanner (props) {
       }
       .more-btn {
         display: inline-block;
-        color: #6c4bdf;
+        color: #7f58ff;
         text-align: center;
         font-size: 1rem;
         transition: all 0.5s;
@@ -158,15 +170,22 @@ export default function HomeBanner (props) {
         right: 0;
       }
       @media (max-width: 800px) {
+        .mo {
+          display: flex !important;
+        }
+        .pc {
+          display: none !important;
+        }
         .banner {
           width: 90%;
         }
         .title {
-          font-size: 2rem;
+          font-size: 1.8rem;
           letter-spacing: -0.08rem;
         }
         .movie-list {
           flex-wrap: wrap;
+          padding: 40px 0px 0px;
         }
         .movie {
           width: 46%;

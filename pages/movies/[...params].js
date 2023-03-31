@@ -160,7 +160,7 @@ export default function Detail ({params}) {
         }
         .tag {
           padding: 5px 10px;
-          border: 1px solid #6c4bdf;
+          border: 1px solid #7f58ff;
           border-radius: 20px;
           margin-right: 10px;
           margin-bottom: 10px;

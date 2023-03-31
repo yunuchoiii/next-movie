@@ -83,6 +83,7 @@ export default function SearchResult () {
           font-size: 2.2rem;
           margin: 20px 0 30px;
           text-align: center;
+          color: #f3f3f3;
         }
         .movie {
           width: 50%;
@@ -92,6 +93,8 @@ export default function SearchResult () {
           margin-bottom: 15px;
           border: 2px solid transparent;
           transition: all 0.2s ease-out;
+          background-color: #18232a;
+          color: #f3f3f3;
         }
         .movie:hover {
           border: 2px solid #c3a9ed;

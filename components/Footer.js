@@ -21,7 +21,7 @@ export default function Footer () {
         .footer {
           width: 100%;
           height: 70px;
-          background-color: #555555;
+          background-color: #090e10;
           padding: 0 20px;
           font-size: 0.9rem;
           line-height: 1.5;

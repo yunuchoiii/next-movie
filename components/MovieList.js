@@ -79,7 +79,7 @@ export default function MovieList(props) {
             margin-bottom: 10px;
           }
           .movie-title {
-            color: #313131;
+            color: #d8d8d8;
           }
           @media (max-width: 800px) {
             .movie {

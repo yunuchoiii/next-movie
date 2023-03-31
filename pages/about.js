@@ -36,7 +36,7 @@ export default function About () {
           height: 100%;
         }
         ul > li > a{
-          color: #6c4bdf;
+          color: #7f58ff;
         }
         ul {
           width: max-content;

@@ -11,11 +11,11 @@ export default function NavBar() {
 
   function navBtnHandler () {
     if (slideMobile === 'dis-none') {
-      setSlideMobile('dis-flex slide-in-top');
-    } else if (slideMobile === 'dis-flex slide-in-top') {
-      setSlideMobile('slide-out-top');
-    } else if (slideMobile === 'slide-out-top') {
-      setSlideMobile('dis-flex slide-in-top');
+      setSlideMobile('dis-flex slide-in-bottom');
+    } else if (slideMobile === 'dis-flex slide-in-bottom') {
+      setSlideMobile('slide-out-bottom');
+    } else if (slideMobile === 'slide-out-bottom') {
+      setSlideMobile('dis-flex slide-in-bottom');
     }
   }
 
@@ -58,9 +58,7 @@ export default function NavBar() {
             }}
             clipRule="evenodd"
             fillRule="evenodd"
-            stroke="#f3f3f3"
-            strokeLinejoin="round"
-            strokeMiterlimit="2"
+            fill="#f3f3f3"
             viewBox="0 0 24 24" 
             xmlns="http://www.w3.org/2000/svg">
               <path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/>
@@ -81,11 +79,10 @@ export default function NavBar() {
             onClick={()=>{
               navBtnHandler();
             }}
-            fill="#808080" 
+            fill="#f3f3f3" 
             viewBox="0 0 32 32" 
             version="1.1" 
-            xmlns="http://www.w3.org/2000/svg" 
-            stroke="#808080">
+            xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
             <g id="SVGRepo_iconCarrier"> 
@@ -98,15 +95,14 @@ export default function NavBar() {
       {/* 모바일 네비게이션바 */}
       <div className="fl-center nav-mo">
         <div className={`navbox-mo montserrat fl-center fl-col box-shadow-2 ${slideMobile}`}>
-          <div className="mb-20">
-            <SearchBar></SearchBar>
-          </div>
+          <SearchBar></SearchBar>
           <Link href="/" legacyBehavior>
             <a className={router.pathname === '/' ? "purple" : null}>Home</a>
           </Link>
           <Link href="/about" legacyBehavior>
             <a className={now_path === 'about' ? "purple" : null}>About</a>
           </Link>
+          <hr/>
           <Link href="/popular/1" legacyBehavior>
             <a className={now_path === 'popular' ? "purple" : null}>Popular</a>
           </Link>
@@ -116,6 +112,27 @@ export default function NavBar() {
           <Link href="/top_rated/1" legacyBehavior>
             <a className={now_path === 'top_rated' ? "purple" : null}>Top Rated</a>
           </Link>
+          <hr/>
+          <div className="contact fl-between fl-row">
+            <a href="mailto:chltjdnjs529@gmail.com">
+              <i className="fa-regular fa-envelope fa-xl" style={{color: "#d1d1d1"}}></i>
+            </a>
+            <a href="https://github.com/yunuchoiii/next-movie">
+              <i className="fa-brands fa-github fa-xl" style={{color: "#d1d1d1"}}></i>
+            </a>
+          </div>
+          <svg src="https://cdn-icons-png.flaticon.com/512/2961/2961937.png" 
+            className={'close-nav-icon'} 
+            onClick={()=>{
+              navBtnHandler();
+            }}
+            clipRule="evenodd"
+            fillRule="evenodd"
+            fill="#f3f3f3"
+            viewBox="0 0 24 24" 
+            xmlns="http://www.w3.org/2000/svg">
+              <path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/>
+          </svg>
         </div>        
       </div>
 
@@ -128,11 +145,10 @@ export default function NavBar() {
             align-items: center;
             justify-content: space-between;
             padding: 20px 30px;
-            {/* box-shadow: 9px 10px 38px -5px rgba(0,0,0,0.1); */}
             position: fixed;
             top: 0;
             z-index: 100;
-            background-color: transparent;
+            background-color: #12191f;
           }
           a {
             text-decoration: none;
@@ -140,7 +156,7 @@ export default function NavBar() {
             transition: color 0.2s ease-in-out;
           }
           a:hover {
-            color: #6c4bdf
+            color: #7f58ff
           }
           img {
             height: 50px;
@@ -156,7 +172,7 @@ export default function NavBar() {
             letter-spacing: -0.05rem;
           }
           .navbox-pc {
-            color: #3a3a3a;
+            color: #d8d8d8;
             text-transform: uppercase;
             letter-spacing: -0.05rem;
             transition: all 0.5s ease-in-out;
@@ -173,7 +189,7 @@ export default function NavBar() {
           .search__icon {
             height: 1.3em;
             width: 1.3em;
-            fill: #6c4bdf;
+            fill: #7f58ff;
             transition: all 0.5s ease-in-out;
           }
           .search-btn {
@@ -214,21 +230,37 @@ export default function NavBar() {
             }
             .navbox-mo {
               display: flex;
-              width: 80%;
+              justify-content: space-between;
+              width: 100%;
+              height: calc(100% - 60px);
               position: fixed;
-              top: 90px;
-              background-color: rgb(255, 255, 255);
-              border-radius: 30px;
+              bottom: 0;
+              background-color: #141f27;
               z-index: 99;
-              padding: 20px;
+              padding: 50px;
+              border-top-left-radius: 30px;
+              border-top-right-radius: 30px;
             }
             .navbox-mo > a {
-              padding: 10px;
-              font-size: 1.1rem;
+              font-size: 1.2rem;
             }
             .nav-mo-btn {
               display: block;
               width: 20px;
+            }
+            .contact {
+              width: 85px;
+            }
+            .close-nav-icon {
+              width: 30px;
+              height: 30px;
+              color: #808080;
+            }
+            hr {
+              width: 70%;
+              background: #45525b;
+              height:1px;
+              border:0;
             }
           }
         `}
