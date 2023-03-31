@@ -5,7 +5,9 @@ import Popular from "./popular/[...page]";
 export default function Index() {
   return (
     <div className="home">
-      <SearchBar></SearchBar>
+      <div className="mb-30">
+        <SearchBar></SearchBar>
+      </div>
       <HomeBanner sort="popular" title="Popular"></HomeBanner>
       <hr></hr>
       <HomeBanner sort="now_playing" title="Now In Theaters"></HomeBanner>

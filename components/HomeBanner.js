@@ -67,9 +67,10 @@ export default function HomeBanner (props) {
         
       }
       .title {
-        font-size: 2rem;
+        font-size: 2.4rem;
         color: #303030;
         transition: color 0.2s ease-out;
+        white-space: nowrap;
       }
       .title:hover {
         color: #6c4bdf
@@ -85,9 +86,9 @@ export default function HomeBanner (props) {
         padding: 30px 0px 20px;
       }
       .movie {
-        width: 15%;
+        width: 15.5%;
         position: relative;
-        padding-bottom: 22%;
+        padding-bottom: 23.25%;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -162,17 +163,20 @@ export default function HomeBanner (props) {
         }
         .title {
           font-size: 2rem;
-          letter-spacing: -0.05rem;
+          letter-spacing: -0.08rem;
         }
         .movie-list {
           flex-wrap: wrap;
         }
         .movie {
-          width: 45%;
-          padding-bottom: 68%;
+          width: 46%;
+          padding-bottom: 69%;
           margin-bottom: 30px;
         }
         a {
+          border-radius: 10px;
+        }
+        .info {
           border-radius: 10px;
         }
       }

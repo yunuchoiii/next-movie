@@ -22,6 +22,10 @@ export default function SearchBar (props) {
     }
   }, [inputValue])
 
+  useEffect(()=>{
+    setInputValue('');
+  }, [router])
+
   return <>
     <div className="search">
       <input 
@@ -69,6 +73,7 @@ export default function SearchBar (props) {
           width: 25em;
           transition: all ease-in-out .5s;
           margin-right: -3.5rem;
+          margin-left: -0.8rem;
         }
         .search__input:hover, .search__input:focus {
           box-shadow: 0 0 1em #00000013;
@@ -104,9 +109,6 @@ export default function SearchBar (props) {
         }
 
         @media (max-width: 800px) {
-          .search {
-            margin-bottom: 30px;
-          }
           .search__input {
             width: 15em;
           }

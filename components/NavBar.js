@@ -7,21 +7,21 @@ export default function NavBar() {
   const router = useRouter();
   const now_path = router.asPath.split("/")[1];
   const [hiddenClass, setHiddenClass] = useState('dis-none');
-  const [slideMobile, setSlideMobile] = useState('hidden');
+  const [slideMobile, setSlideMobile] = useState('dis-none');
 
   function navBtnHandler () {
-    if (slideMobile === 'hidden') {
-      setSlideMobile('visible slide-in-top');
-    } else if (slideMobile === 'visible slide-in-top') {
+    if (slideMobile === 'dis-none') {
+      setSlideMobile('dis-flex slide-in-top');
+    } else if (slideMobile === 'dis-flex slide-in-top') {
       setSlideMobile('slide-out-top');
     } else if (slideMobile === 'slide-out-top') {
-      setSlideMobile('visible slide-in-top');
+      setSlideMobile('dis-flex slide-in-top');
     }
   }
 
   useEffect(()=>{
     setHiddenClass('dis-none');
-    setSlideMobile('hidden');
+    setSlideMobile('dis-none');
   }, [router])
   
   return (
@@ -95,8 +95,12 @@ export default function NavBar() {
         </button>
       </nav>
 
+      {/* 모바일 네비게이션바 */}
       <div className="fl-center nav-mo">
         <div className={`navbox-mo montserrat fl-center fl-col box-shadow-2 ${slideMobile}`}>
+          <div className="mb-20">
+            <SearchBar></SearchBar>
+          </div>
           <Link href="/" legacyBehavior>
             <a className={router.pathname === '/' ? "purple" : null}>Home</a>
           </Link>
@@ -123,12 +127,12 @@ export default function NavBar() {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px 30px 20px 20px;
-            box-shadow: 9px 10px 38px -5px rgba(0,0,0,0.1);
+            padding: 20px 30px;
+            {/* box-shadow: 9px 10px 38px -5px rgba(0,0,0,0.1); */}
             position: fixed;
             top: 0;
             z-index: 100;
-            background-color: white;
+            background-color: transparent;
           }
           a {
             text-decoration: none;
@@ -185,10 +189,10 @@ export default function NavBar() {
           .erase-icon {
             width: 20px;
             height: 20px;
-            margin-right: 10px;
+            margin-right: 20px;
             color: 808080;
           }
-          @media (max-width: 800px) {
+          @media (max-width: 1200px) {
             nav {
               width: 100vw;
               height: 60px;
@@ -213,17 +217,17 @@ export default function NavBar() {
               width: 80%;
               position: fixed;
               top: 90px;
-              background-color: rgba(255, 255, 255, 0.95);
+              background-color: rgb(255, 255, 255);
               border-radius: 30px;
               z-index: 99;
               padding: 20px;
             }
             .navbox-mo > a {
-              padding: 7px;
+              padding: 10px;
               font-size: 1.1rem;
             }
             .nav-mo-btn {
-              display: flex;
+              display: block;
               width: 20px;
             }
           }

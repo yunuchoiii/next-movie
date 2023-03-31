@@ -22,12 +22,12 @@ export default function Detail ({params}) {
     :<div className="body">
       <img src={`https://image.tmdb.org/t/p/w500/${info.poster_path}`} className="poster box-shadow"></img>
       <div className="contentsbox">
-        <div className="fl-center">
+        <div className="titlebox">
           <span className="purple title">
             {info.original_title}
           </span>
           {info.title != info.original_title ? 
-            <span className="co-title"> ({info.title})</span> : null}          
+            <span className="co-title"><br/> ({info.title})</span> : null}          
         </div>
         <p className="tagline">{info.tagline}</p>
         <hr></hr>
@@ -75,7 +75,7 @@ export default function Detail ({params}) {
           </div>
         </div>
         <hr></hr>
-        <div className="icons fl-center">
+        <div className="icons">
           {info.homepage != "" ? 
           <a href={info.homepage} target="_blank">
             <img src="https://cdn-icons-png.flaticon.com/512/7781/7781669.png" className="filter-dark mr-15"/>
@@ -198,6 +198,9 @@ export default function Detail ({params}) {
             height: auto;
             margin-bottom: 0px;
           }
+          .titlebox {
+            text-align: center;
+          }
           .title {
             font-size: 1.8rem;
             text-align: center;
@@ -225,6 +228,10 @@ export default function Detail ({params}) {
           }
           .details b{
             width: 90px;
+          }
+          .icons {
+            display: flex;
+            justify-content: center;
           }
         }
       `}

@@ -58,7 +58,7 @@ export default function SearchResult () {
               </div>
             </div>
           </div>
-          <img src="https://cdn-icons-png.flaticon.com/512/2989/2989988.png" width="30px"></img>
+          <img src="https://cdn-icons-png.flaticon.com/512/2989/2989988.png" width="30px" className="arrow"></img>
         </div>
       </Link>
     }) : <div className="empty fl-center">No Search Results Found.</div>}
@@ -82,6 +82,7 @@ export default function SearchResult () {
         .header {
           font-size: 2.2rem;
           margin: 20px 0 30px;
+          text-align: center;
         }
         .movie {
           width: 50%;
@@ -119,6 +120,25 @@ export default function SearchResult () {
         .empty {
           height: 300px;
           font-size: 1.2rem;
+        }
+        @media (max-width: 800px) {
+          .movie {
+            width: 90%;
+          }
+          .arrow {
+            display: none;
+          }
+          .title {
+            font-size: 1rem;
+          }
+          .title span {
+            font-size: 0.8rem;
+            color: #808080
+          }
+          .date {
+            margin-top: 5px;
+            font-size: 0.9rem;
+          }
         }
       `}
     </style>

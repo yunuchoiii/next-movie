@@ -71,6 +71,12 @@ button {
 .mb-10 {
   margin-bottom: 10px;
 }
+.mb-20 {
+  margin-bottom: 20px;
+}
+.mb-30 {
+  margin-bottom: 30px;
+}
 .ml-10 {
   margin-left: 10px;
 }
@@ -106,13 +112,13 @@ button {
   visibility: hidden;
 }
 .dis-none {
-  display: none;
+  display: none !important;
 }
 .dis-block {
-  display: block;
+  display: block !important;
 }
 .dis-flex {
-  display: flex;
+  display: flex !important;
 }
 .pagination {
   width: 100vw;
@@ -167,7 +173,10 @@ button {
     height: 2rem;
   }
   .pg-btn {
-    margin: 0px 20px !important;
+    margin: 0px 10px !important;
+  }
+  .pg-disabled {
+    margin: 0px 10px !important;
   }
 }
 

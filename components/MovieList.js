@@ -93,7 +93,8 @@ export default function MovieList(props) {
               transform: scale(0.9);
             }
             .title {
-              font-size: 1.8rem
+              font-size: 1.8rem;
+              margin-top: 10px;
             }
           }
         `}
