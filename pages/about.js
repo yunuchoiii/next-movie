@@ -36,7 +36,7 @@ export default function About () {
           height: 100%;
         }
         ul > li > a{
-          color: #7f58ff;
+          color: #b486ff;
         }
         ul {
           width: max-content;
@@ -59,10 +59,12 @@ export default function About () {
         .img_nextjs {
           width: 250px;
           margin-left: 50px;
+          filter: invert(100%)
         }
         .img_plus {
           width: 50px;
           height: 50px;
+          filter: invert(100%)
         }
         .title {
           font-size: 2.3rem;
@@ -73,6 +75,7 @@ export default function About () {
           display: flex;
           flex-direction: column;
           align-items: center;
+          color: #f3f3f3;
         }
         .about{
           margin: 30px;

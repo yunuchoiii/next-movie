@@ -5,12 +5,15 @@ import { useEffect, useState } from "react";
 export default function Detail ({params}) {
   const [title, id] = params || [];
   const [info, setInfo] = useState({});
+  const defaultImage = 'https://cdn-icons-png.flaticon.com/512/8058/8058802.png'
+
   useEffect(() => {
     (async () => {
       const response = await (await fetch(
         `http://localhost:3000/api/movies/id=${id}`
       )).json();
       setInfo(response);
+      console.log(response)
     })();
   }, [])
   return <div>
@@ -20,7 +23,16 @@ export default function Detail ({params}) {
       <Loader/>
     </div> 
     :<div className="body">
-      <img src={`https://image.tmdb.org/t/p/w500/${info.poster_path}`} className="poster box-shadow"></img>
+      <div className="posterbox">
+        <img 
+          src={`https://image.tmdb.org/t/p/w500/${info.poster_path}`} 
+          className="poster box-shadow" 
+          onError={(e)=>{
+            e.target.onerror = null;
+            e.target.src = defaultImage;
+            e.target.classList.add("default-image");
+          }}></img>        
+      </div>
       <div className="contentsbox">
         <div className="titlebox">
           <span className="purple title">
@@ -39,7 +51,7 @@ export default function Detail ({params}) {
         </div>
         <hr></hr>
         <div className="details">
-          <div>
+          <div class>
             <b>Rate</b>
             <span className="purple fw-700 ml-10">
               {info.vote_average ? info.vote_average.toFixed(1):null}
@@ -49,7 +61,11 @@ export default function Detail ({params}) {
             <div>
               <b>Country</b>
               <span className="purple fw-700 ml-10">
-                {info.production_countries[0].name}
+                {info.production_countries.map((country, index) => {
+                  return <span key={country.id}>
+                    {country.name}<br></br>
+                  </span>
+                })}
               </span>
             </div>
           : null}
@@ -78,7 +94,7 @@ export default function Detail ({params}) {
         <div className="icons">
           {info.homepage != "" ? 
           <a href={info.homepage} target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/7781/7781669.png" className="filter-dark mr-15"/>
+            <img src="https://cdn-icons-png.flaticon.com/512/4556/4556814.png" className="filter-invert mr-15"/>
           </a> : null}
           {info.imdb_id != "" ? 
           <a href={`https://www.imdb.com/title/${info.imdb_id}/`} target="_blank">
@@ -88,20 +104,20 @@ export default function Detail ({params}) {
       </div>
     </div>}
 
-    <style jsx global>
+    <style jsx>
       {`
         .body {
           display: flex;
+          color: #f3f3f3;
         }
         .contents {
-          min-height: calc(100% - 70px);
           padding-top: 60px !important;
           margin-top: 75px !important;
         }
         hr {
           margin-top: 15px;
           margin-bottom: 18px;
-          background: #d6d6d6;
+          background: #45525b;
           height:1px;
           width: 100%;
           border:0;
@@ -110,9 +126,17 @@ export default function Detail ({params}) {
           flex-direction: column;
           align-items: baseline;
         }
+        .posterbox {
+          width: 30%;
+          min-width: 350px;
+        }
         .poster {
-          height: 75vh;
+          width: 100%;
           border-radius: 10px;
+        }
+        .default-image {
+          height: 400px;
+          background-color: #131f27;
         }
         .title {
           font-size: 2.5rem;
@@ -128,6 +152,7 @@ export default function Detail ({params}) {
           color: #808080;
         }
         .contentsbox {
+          width: 70%;
           flex-direction: column;
           padding-left: 50px;
           height: 100%;
@@ -146,7 +171,7 @@ export default function Detail ({params}) {
           display: flex;
           flex-direction: row;
           align-items: baseline;
-          margin: 2px 0px;
+          margin: 5px 0px;
         }
         .details b{
           width: 100px;
@@ -160,7 +185,7 @@ export default function Detail ({params}) {
         }
         .tag {
           padding: 5px 10px;
-          border: 1px solid #7f58ff;
+          border: 1px solid #b486ff;
           border-radius: 20px;
           margin-right: 10px;
           margin-bottom: 10px;
@@ -172,8 +197,8 @@ export default function Detail ({params}) {
         .icons img {
           height: 30px;
         }
-        .filter-dark {
-          filter: brightness(0.8);
+        .filter-invert {
+          filter: invert(0.9);
         }
         .loading {
           height: 500px;
@@ -193,8 +218,12 @@ export default function Detail ({params}) {
           .NMlogo {
             width: auto !important;
           }
+          .posterbox {
+            width:80%;
+            min-width: auto;
+          }
           .poster {
-            width: 80%;
+            width: 100%;
             height: auto;
             margin-bottom: 0px;
           }
@@ -213,6 +242,7 @@ export default function Detail ({params}) {
             text-align: center;
           }
           .contentsbox {
+            width: 100%;
             font-size: 1rem;
             padding: 5%;
           }
@@ -232,6 +262,7 @@ export default function Detail ({params}) {
           .icons {
             display: flex;
             justify-content: center;
+            margin-top: 20px;
           }
         }
       `}

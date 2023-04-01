@@ -10,6 +10,7 @@ export default function SearchResult () {
   const [totalPage, setTotalPage] = useState("");
   const [page, setPage] = useState("");
   const [results, setResults] = useState([]);
+  const defaultImage = 'https://cdn-icons-png.flaticon.com/512/8058/8058802.png'
 
   function scrollToTop() {
     window.scrollTo({
@@ -47,18 +48,24 @@ export default function SearchResult () {
       legacyBehavior>
         <div className="movie box-shadow-2 fl-between">
           <div className="info">
-            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="poster"></img>
+            <div className="poster fl-center">
+              <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = defaultImage;
+                e.target.classList.add("default-image");
+              }}></img>              
+            </div>
             <div className="fl-col">
               <div className="title">
-                {movie.title}<br/>
-                <span>{movie.original_title != movie.title ? movie.original_title : null}</span>
+                {movie.original_title}<br/>
+                <span>{movie.original_title != movie.title ? movie.title : null}</span>
               </div>
               <div className="date">
                 {movie.release_date ? movie.release_date.split('-')[0] : null}
               </div>
             </div>
           </div>
-          <img src="https://cdn-icons-png.flaticon.com/512/2989/2989988.png" width="30px" className="arrow"></img>
+          <img src="https://cdn-icons-png.flaticon.com/512/2989/2989988.png" className="arrow"></img>
         </div>
       </Link>
     }) : <div className="empty fl-center">No Search Results Found.</div>}
@@ -106,8 +113,15 @@ export default function SearchResult () {
         .poster {
           width: 70px;
           height: 105px;
+          margin-right: 15px;
+        }
+        .poster > img {
+          height: 100%;
           border-radius: 5px;
-          margin-right: 10px;
+        }
+        .default-image {
+          width: 100%;
+          height: auto !important;
         }
         .title {
           font-size: 1.2rem;
@@ -119,6 +133,10 @@ export default function SearchResult () {
         .date {
           margin-top: 5px;
           font-size: 1rem;
+        }
+        .arrow {
+          width: 30px;
+          filter: invert(80%)
         }
         .empty {
           height: 300px;

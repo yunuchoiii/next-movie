@@ -115,10 +115,10 @@ export default function NavBar() {
           <hr/>
           <div className="contact fl-between fl-row">
             <a href="mailto:chltjdnjs529@gmail.com">
-              <i className="fa-regular fa-envelope fa-xl" style={{color: "#d1d1d1"}}></i>
+              <i className="fa-regular fa-envelope fa-xl" style={{color: "#f3f3f3"}}></i>
             </a>
             <a href="https://github.com/yunuchoiii/next-movie">
-              <i className="fa-brands fa-github fa-xl" style={{color: "#d1d1d1"}}></i>
+              <i className="fa-brands fa-github fa-xl" style={{color: "#f3f3f3"}}></i>
             </a>
           </div>
           <svg src="https://cdn-icons-png.flaticon.com/512/2961/2961937.png" 
@@ -156,7 +156,7 @@ export default function NavBar() {
             transition: color 0.2s ease-in-out;
           }
           a:hover {
-            color: #7f58ff
+            color: #b486ff
           }
           img {
             height: 50px;
@@ -189,7 +189,7 @@ export default function NavBar() {
           .search__icon {
             height: 1.3em;
             width: 1.3em;
-            fill: #7f58ff;
+            fill: #b486ff;
             transition: all 0.5s ease-in-out;
           }
           .search-btn {
@@ -220,7 +220,7 @@ export default function NavBar() {
               height: 1.8rem;
             }
             .NMlogo {
-              font-size: 1.2rem
+              font-size: 1.4rem
             }
             .search-btn {
               display: none;
@@ -240,6 +240,7 @@ export default function NavBar() {
               padding: 50px;
               border-top-left-radius: 30px;
               border-top-right-radius: 30px;
+              color: #f3f3f3;
             }
             .navbox-mo > a {
               font-size: 1.2rem;

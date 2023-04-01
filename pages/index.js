@@ -5,7 +5,7 @@ import Popular from "./popular/[...page]";
 export default function Index() {
   return (
     <div className="home">
-      <div className="mb-30">
+      <div className="mt-30 mb-30">
         <SearchBar></SearchBar>
       </div>
       <HomeBanner sort="popular" title="Popular"></HomeBanner>
@@ -22,7 +22,7 @@ export default function Index() {
           }
           hr {
             width: 97%;
-            background: #bdbdbd;
+            background: #45525b;
             height:1px;
             border:0;
             margin: 30px 0px;

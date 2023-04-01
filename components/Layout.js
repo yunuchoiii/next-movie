@@ -9,13 +9,15 @@ export default function Layout ({children}) {
     <style jsx>
       {`
         .contents {
-          padding: 50px;
+          padding: 40px 50px 40px;
           margin-top: 80px;
+          min-height: calc(100% - 70px);
         }
         @media (max-width: 800px) {
           .contents {
-            padding: 20px;
-            margin-top: 70px;
+            padding: 0px 20px;
+            margin-top: 60px;
+            margin-bottom: 30px;
           }
         }
       `}

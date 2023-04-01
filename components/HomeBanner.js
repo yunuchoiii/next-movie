@@ -85,7 +85,7 @@ export default function HomeBanner (props) {
         white-space: nowrap;
       }
       .title:hover {
-        color: #7f58ff
+        color: #b486ff
       }
       .fl-between {
         display: flex;
@@ -131,8 +131,8 @@ export default function HomeBanner (props) {
         width: 30px;
         height: 30px;
         border-radius: 30px;
-        background-color: #7f58ff;
-        color: white;
+        background-color: #b486ff;
+        color: #11191f;
         font-size: 1.2rem;
         position: absolute;
         left: -12px;
@@ -141,7 +141,7 @@ export default function HomeBanner (props) {
       }
       .more-btn {
         display: inline-block;
-        color: #7f58ff;
+        color: #b486ff;
         text-align: center;
         font-size: 1rem;
         transition: all 0.5s;

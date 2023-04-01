@@ -2,6 +2,7 @@ import HeadTitle from "@/components/HeadTitle";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Loader from "./Loader";
 import Pagination from "./Pagnation";
 
 export default function MovieList(props) {
@@ -26,10 +27,10 @@ export default function MovieList(props) {
   return (
     <div className="body">
       <HeadTitle title={props.title}></HeadTitle>
-      <div className="title purple montserrat fw-700">
+      <div className="title montserrat fw-700">
         <span>{props.title}</span>
       </div>
-      {movies?.map((movie)=>(
+      {movies ? movies?.map((movie)=>(
       <div className="movie" onClick={()=>onMovieClick(movie.id, movie.title)} key={movie.id}>
         <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="poster"></img>    
         <Link
@@ -38,13 +39,15 @@ export default function MovieList(props) {
           legacyBehavior
         >
           <a className="movie-title">
-            <h4>
-              {movie.original_title}
-            </h4>
+            {movie.original_title}
           </a>
         </Link>
       </div>
-      ))}
+      )) :     
+      <div className="loading fl-center">
+        <Loader/>
+      </div> }
+
       <Pagination 
         sort={props.sort} 
         page={currentPage}
@@ -62,10 +65,11 @@ export default function MovieList(props) {
             padding-bottom: 50px;
             text-align: center;
             font-size: 2.3rem;
+            color: #f3f3f3;
           }
           .movie {
             width: 18%;
-            margin-bottom: 30px;
+            margin-bottom: 36px;
             text-align: center;
             transition: transform 0.2s ease-in-out;
           }
@@ -81,6 +85,10 @@ export default function MovieList(props) {
           .movie-title {
             color: #d8d8d8;
           }
+          .loading {
+            height: 500px;
+            width: 100%;
+          }
           @media (max-width: 800px) {
             .movie {
               width: 47%;
@@ -94,7 +102,7 @@ export default function MovieList(props) {
             }
             .title {
               font-size: 1.8rem;
-              margin-top: 10px;
+              margin-top: 20px;
             }
           }
         `}
