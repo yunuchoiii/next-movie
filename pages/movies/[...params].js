@@ -26,6 +26,7 @@ export default function Detail ({params}) {
       <div className="posterbox">
         <img 
           src={`https://image.tmdb.org/t/p/w500/${info.poster_path}`} 
+          alt="poster"
           className="poster box-shadow" 
           onError={(e)=>{
             e.target.onerror = null;
@@ -94,11 +95,11 @@ export default function Detail ({params}) {
         <div className="icons">
           {info.homepage != "" ? 
           <a href={info.homepage} target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/4556/4556814.png" className="filter-invert mr-15"/>
+            <img src="https://cdn-icons-png.flaticon.com/512/4556/4556814.png" alt="homepage" className="filter-invert mr-15"/>
           </a> : null}
           {info.imdb_id != "" ? 
           <a href={`https://www.imdb.com/title/${info.imdb_id}/`} target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png"/>
+            <img alt="imdb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png"/>
           </a> : null}
         </div>
       </div>
