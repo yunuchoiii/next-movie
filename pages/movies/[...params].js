@@ -1,9 +1,11 @@
 import HeadTitle from "@/components/HeadTitle";
 import Loader from "@/components/Loader";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-export default function Detail ({params}) {
-  const [title, id] = params || [];
+export default function Detail () {
+  const router = useRouter();
+  const [title, id] = router.query.params || [];
   const [info, setInfo] = useState({});
   const defaultImage = 'https://cdn-icons-png.flaticon.com/512/8058/8058802.png'
 
@@ -15,7 +17,7 @@ export default function Detail ({params}) {
       setInfo(response);
       console.log(response)
     })();
-  }, [])
+  }, [router.query.params])
   return <div>
     <HeadTitle title={title}></HeadTitle>
     {!info.title ? 
@@ -269,10 +271,4 @@ export default function Detail ({params}) {
       `}
     </style>
   </div>;
-}
-
-export function  getServerSideProps ({params:{params}}){
-  return {
-    props: {params}
-  }
 }
