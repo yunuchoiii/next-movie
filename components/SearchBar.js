@@ -9,7 +9,7 @@ export default function SearchBar (props) {
   const [inputValue, setInputValue] = useState();
   const [hiddenClass, setHiddenClass] = useState();
   function onSearchClick () {
-    if (window.event.keyCode==13) {
+    if (window.event.keyCode==13 && inputValue!='') {
       router.push(`/search/${inputValue}/1`);
     }
   }
@@ -43,7 +43,7 @@ export default function SearchBar (props) {
         onClick={()=>{
           setInputValue('');
         }}/>
-      <Link href={`/search/${inputValue}/1`}>
+      <Link href={inputValue!='' ? `/search/${inputValue}/1` : '/'}>
         <button className="search__button">
             <svg className="search__icon" aria-hidden="true" viewBox="0 0 24 24">
                 <g>

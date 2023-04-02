@@ -7,11 +7,26 @@ const nextConfig = {
   basepath: "/next-movie",
   async redirects() {
     return [
-      // {
-      //   source: "/contact",
-      //   destination: "/form",
-      //   permanent: false,
-      // }
+      {
+        source: "/popular",
+        destination: "/popular/1",
+        permanent: false,
+      },
+      {
+        source: "/now_playing",
+        destination: "/now_playing/1",
+        permanent: false,
+      },
+      {
+        source: "/top_rated",
+        destination: "/top_rated/1",
+        permanent: false,
+      },
+      {
+        source: "/search/:keyword",
+        destination: "/search/:keyword/1",
+        permanent: false,
+      },
     ]
   },
   async rewrites() {
