@@ -15,7 +15,6 @@ export default function Detail () {
         `http://localhost:3000/api/movies/id=${id}`
       )).json();
       setInfo(response);
-      console.log(response)
     })();
   }, [router.query.params])
   return <div>

@@ -33,7 +33,6 @@ export default function SearchResult () {
       setPage(router.query.keyword[1]);
     }
     pagination();
-    console.log(results.length)
   }, [router.query.keyword, keyword, page])
   
   return <div className="fl-center fl-col">
