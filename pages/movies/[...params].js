@@ -270,3 +270,9 @@ export default function Detail ({params}) {
     </style>
   </div>;
 }
+
+export function  getServerSideProps ({params:{params}}){
+  return {
+    props: {params}
+  }
+}
