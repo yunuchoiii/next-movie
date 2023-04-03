@@ -1,38 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Next Movie
 
-First, run the development server:
+https://yunu-next-movie.vercel.app/
+
+React + Next.js 실습용 개인 프로젝트입니다.
+
+- 영화 목록 확인(인기순, 평가순, 상영 중)
+- 영화 상세 정보 확인
+- PC, 모바일 반응형 UI
+- (추후 TV 시리즈 지원 예정)
+## Tech Stack
+
+- React
+- Next.js
+
+
+## Screenshots
+
+![웹 캡처_3-4-2023_10636_yunu-next-movie vercel app](https://user-images.githubusercontent.com/107801496/229391935-d13c5c4e-5aab-4ee7-8ae8-01165010069b.jpeg)
+
+![웹 캡처_3-4-2023_10659_yunu-next-movie vercel app](https://user-images.githubusercontent.com/107801496/229391953-1d975b48-d76d-47a3-a027-53da98f37957.jpeg)
+
+![웹 캡처_3-4-2023_10745_yunu-next-movie vercel app](https://user-images.githubusercontent.com/107801496/229391961-3da558b7-84fb-45e2-af33-17370578073b.jpeg)
+
+![Group 2](https://user-images.githubusercontent.com/107801496/229394899-b747835b-93e5-44d4-b056-b6d9ffcde060.png)
+
+## Run Locally
+
+Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+  git clone https://github.com/yunuchoiii/next-movie.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install dependencies
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+  npm install
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [/api/hello](/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Start the server
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+  npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+To run this project, you will need to add the following environment variables to your .env file
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+해당 프로젝트를 실행시키기 위해서는 TMDB API 데이터를 불러오기 위한 API_KEY 를 할당받아 .env 파일에 넣어주어야 합니다.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+`API_KEY`
+## Color Reference
 
-## Deploy on Vercel
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Main BG Color | ![#11191f](https://via.placeholder.com/10/11191f?text=+) #11191f |
+| Sub BG Color | ![#131f27](https://via.placeholder.com/10/131f27?text=+) #131f27 |
+| Logo Purple Color | ![#b486ff](https://via.placeholder.com/10/b486ff?text=+) #b486ff |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Feedback
+
+If you have any feedback, please reach out to us.
+
+피드백이 있다면 아래 메일로 보내주세요.
+
+chltjdnjs529@gmail.com
+
