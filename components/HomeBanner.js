@@ -6,7 +6,7 @@ export default function HomeBanner (props) {
   async function getDatas() {
     const arr = [];
     const response = await (await fetch(
-      `http://localhost:3000/api/movies/${props.sort}/page=1`
+      `/api/movies/${props.sort}/page=1`
     )).json();
     for(let i=0; i<=5; i++) {
       arr.push(response.results[i]);

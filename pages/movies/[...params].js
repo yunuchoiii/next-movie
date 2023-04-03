@@ -12,7 +12,7 @@ export default function Detail () {
   useEffect(() => {
     (async () => {
       const response = await (await fetch(
-        `http://localhost:3000/api/movies/id=${id}`
+        `/api/movies/id=${id}`
       )).json();
       setInfo(response);
     })();

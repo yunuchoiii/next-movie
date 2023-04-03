@@ -21,7 +21,7 @@ export default function SearchResult () {
   
   async function pagination() {
     const res = await (await fetch(
-      `http://localhost:3000/api/search/keyword=${keyword}/page=${page}`
+      `/api/search/keyword=${keyword}/page=${page}`
     )).json();
     setResults(res.results);
     setTotalPage(res.total_pages);

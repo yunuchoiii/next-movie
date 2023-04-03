@@ -15,7 +15,7 @@ export default function MovieList(props) {
   }
   async function pagination() {
     const newResults = await (await fetch(
-      `http://localhost:3000/api/movies/${props.sort}/page=${currentPage}`
+      `/api/movies/${props.sort}/page=${currentPage}`
     )).json();
     setMovies(newResults.results);
     setTotalPage(newResults.total_pages);
@@ -114,7 +114,7 @@ export default function MovieList(props) {
 // export async function getServerSideProps({param}) {
 //   console.log(param);
 //   const {results} = await (await fetch(
-//     `http://localhost:3000/api/movies/${props.sort}/page=1`
+//     `/api/movies/${props.sort}/page=1`
 //   )).json();
 //   return {
 //     props: {
