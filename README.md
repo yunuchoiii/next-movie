@@ -14,6 +14,9 @@ React + Next.js 실습용 개인 프로젝트입니다.
 
 - React
 - Next.js
+- HTML
+- CSS
+- JavaScript
 
 
 ## Screenshots
